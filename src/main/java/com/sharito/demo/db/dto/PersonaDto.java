@@ -1,26 +1,27 @@
-package com.sharito.demo.db.entity;
+package com.sharito.demo.db.dto;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+public class PersonaDto {
 
-@Entity
-@Table(name = "PERSONAS")
-public class PersonaEntity {
-
-	
-	@Id 
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@Column(nullable = false)
 	private String nombre;
 	private String primerApellido;
 	private String segundoApellido;
 
+	public PersonaDto() {
+		super();
+	}
+
+	public PersonaDto(Integer id, String nombre, String primerApellido, String segundoApellido) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.primerApellido = primerApellido;
+		this.segundoApellido = segundoApellido;
+	}
+
 	public Integer getId() {
+		
+		
 		return id;
 	}
 

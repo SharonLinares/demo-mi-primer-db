@@ -19,6 +19,9 @@ public class PersonaEntity {
 	private String nombre;
 	private String primerApellido;
 	private String segundoApellido;
+	
+	@Column(unique = true)
+	private String dni;
 
 	public Integer getId() {
 		return id;
@@ -51,5 +54,14 @@ public class PersonaEntity {
 	public void setSegundoApellido(String segundoApellido) {
 		this.segundoApellido = segundoApellido;
 	}
+
+	public String getDni() {
+		return dni;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
+	
 
 }

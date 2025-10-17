@@ -1,12 +1,18 @@
 package com.sharito.demo.db.controller;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sharito.demo.db.dto.PersonaDto;
+import com.sharito.demo.db.entity.PersonaEntity;
 import com.sharito.demo.db.service.PersonaService;
 
 @RestController
@@ -20,11 +26,23 @@ public class PersonaController {
 		this.personaService = personaService;
 	}
 
-	
 	@PostMapping("/crear-persona")
 	public PersonaDto crearPersona(@RequestBody PersonaDto personaDto) {
 		return personaService.crearPersona(personaDto);
 	}
-	
-	
+
+	@GetMapping("/obtener-persona-por-id/{id}")
+	public PersonaDto obtenerPersonaPorId(@PathVariable Integer id) {
+		return personaService.obtenerPersonaPorId(id);
+	}
+
+	@GetMapping("/consultar-personas")
+	public List<PersonaDto> consultarPersonas() {
+		return personaService.consultarPersonas();
+	}
+
+	@GetMapping("/consultar-por-dni/{dni}")
+	public PersonaDto buscarPersonaPorDni(@PathVariable String dni) {
+		return personaService.buscarPersonaPorDni(dni);
+	}
 }

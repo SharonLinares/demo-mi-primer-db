@@ -6,22 +6,22 @@ public class PersonaDto {
 	private String nombre;
 	private String primerApellido;
 	private String segundoApellido;
+	private String dni;
 
 	public PersonaDto() {
 		super();
 	}
 
-	public PersonaDto(Integer id, String nombre, String primerApellido, String segundoApellido) {
+	public PersonaDto(Integer id, String nombre, String primerApellido, String segundoApellido, String dni) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.primerApellido = primerApellido;
 		this.segundoApellido = segundoApellido;
+		this.dni = dni;
 	}
 
 	public Integer getId() {
-		
-		
 		return id;
 	}
 
@@ -51,6 +51,14 @@ public class PersonaDto {
 
 	public void setSegundoApellido(String segundoApellido) {
 		this.segundoApellido = segundoApellido;
+	}
+
+	public String getDni() {
+		return dni;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
 	}
 
 }

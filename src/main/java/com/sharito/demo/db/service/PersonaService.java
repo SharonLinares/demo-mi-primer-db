@@ -54,6 +54,29 @@ public class PersonaService {
 		return personaDto;
 
 	}
+	
+	public List<PersonaDto> buscarPersonasPorApellido(String primerApellido) {
+	    List<PersonaEntity> personasEntity = personaRepository.findByPrimerApellido(primerApellido);
+
+	    if (personasEntity == null || personasEntity.isEmpty()) {
+	        return new ArrayList<>();
+	    }
+
+	    List<PersonaDto> personasDto = new ArrayList<>();
+
+	    for (PersonaEntity personaEntity : personasEntity) {
+	        PersonaDto personaDto = new PersonaDto();
+	        personaDto.setId(personaEntity.getId());
+	        personaDto.setNombre(personaEntity.getNombre());
+	        personaDto.setPrimerApellido(personaEntity.getPrimerApellido());
+	        personaDto.setSegundoApellido(personaEntity.getSegundoApellido());
+	        personaDto.setDni(personaEntity.getDni());
+
+	        personasDto.add(personaDto);
+	    }
+
+	    return personasDto;
+	}
 
 	public List<PersonaDto> consultarPersonas() {
 		List<PersonaDto> personas = new ArrayList<>();
